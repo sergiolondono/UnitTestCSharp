@@ -35,15 +35,17 @@ namespace TestNinja.UnitTests
 		}
 
 		[Test]
-		[TestCase(0)]
-		[TestCase(64)]
-		[TestCase(65)]
-		[TestCase(66)]
-		public void CalculateDemeritPoints_SpeedLessOrEqualToSpeedLimit_ReturnZero(int speed)
+		[TestCase(0, 0)]
+		[TestCase(64, 0)]
+		[TestCase(65, 0)]
+		[TestCase(66, 0)]
+		[TestCase(70, 1)]
+		[TestCase(75, 2)]
+		public void CalculateDemeritPoints_WhenCalled_ReturnDemeritPoints(int speed, int expectedResult)
 		{
 			var result = _demeritPoint.CalculateDemeritPoints(speed);
 
-			Assert.That(result, Is.EqualTo(0));
+			Assert.That(result, Is.EqualTo(expectedResult));
 		}
 
 		[Test]
