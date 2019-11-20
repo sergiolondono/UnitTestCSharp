@@ -31,7 +31,25 @@ namespace TestNinja.UnitTests
             Assert.That(result, Is.EqualTo(3));
         }
 
-        [Test]
+		[Test]
+		public void GetOddNumbers_LimitsGreaterThanZero_ReturnOddNumbersUpToLimit()
+		{
+			var result = _math.GetOddNumbers(5);
+
+			// Assert.That(result, Is.Not.Empty);
+			// Assert.That(result.Count(), Is.Equal(3));
+
+			// Assert.That(result, Does.Contain(1));
+			// Assert.That(result, Does.Contain(3));
+			// Assert.That(result, Does.Contain(5));
+
+			Assert.That(result, Is.EquivalentTo(new[] { 1, 3, 5 }));
+
+			//Assert.That(result, Is.Ordered);
+			//Assert.That(result, Is.Unique);
+		}
+
+		[Test]
         [TestCase(2, 1, 2)]
         [TestCase(1, 2, 2)]
         [TestCase(1, 1, 1)]
@@ -67,16 +85,16 @@ namespace TestNinja.UnitTests
             Assert.That(result, Is.EqualTo(2));
         }
 
-        [Test]
-        public void Max_ArgumentsAreEqual_ReturnTheSameArgument()
-        {
-            //Arrange
-            //Act
-            var result = _math.Max(1, 1);
+		[Test]
+		public void Max_ArgumentsAreEqual_ReturnTheSameArgument()
+		{
+			//Arrange
+			//Act
+			var result = _math.Max(1, 1);
 
-            //Assert
-            Assert.That(result, Is.EqualTo(1));
-        }
+			//Assert
+			Assert.That(result, Is.EqualTo(1));
+		}
 
-    }
+	}
 }
