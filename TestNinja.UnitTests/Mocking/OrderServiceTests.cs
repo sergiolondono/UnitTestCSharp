@@ -16,9 +16,10 @@ namespace TestNinja.UnitTests.Mocking
 
 			//Act
 			var order = new Order();
-			service.PlaceOrder(order);
+			var result = service.PlaceOrder(order);
 
 			// Assert
+			// Assert.That(result, Is.EqualTo(0));
 			storage.Verify(s => s.Store(order));
 		}
 	}
